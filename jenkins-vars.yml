@@ -1,0 +1,28 @@
+---
+
+# jenkins variables
+project_name: docker-docker-compose
+external_type: github_stable
+release_type: stable
+release_tag: latest
+ls_branch: master
+repo_vars:
+  - EXT_GIT_BRANCH = 'master'
+  - EXT_USER = 'docker'
+  - EXT_REPO = 'compose'
+  - BUILD_VERSION_ARG = 'COMPOSE_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-docker-compose'
+  - DOCKERHUB_IMAGE = 'linuxserver/docker-compose'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/docker-compose'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/docker-compose'
+  - DIST_IMAGE = 'ubuntu'
+  - MULTIARCH='true'
+  - CI='false'
+  - CI_WEB='false'
+  - CI_PORT='6555'
+  - CI_SSL='false'
+  - CI_DELAY='180'
+  - CI_DOCKERENV='TZ=US/Pacific'
+  - CI_AUTH='user:password'
+  - CI_WEBPATH=''
