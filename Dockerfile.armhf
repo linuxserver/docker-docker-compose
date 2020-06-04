@@ -1,4 +1,4 @@
-ARG DOCKER_VERSION=19.03.5
+ARG DOCKER_VERSION=19.03.8
 
 FROM arm32v7/docker:${DOCKER_VERSION} AS docker-cli
 
@@ -33,14 +33,15 @@ RUN \
  git checkout "${COMPOSE_VERSION}" && \
  pip3 install virtualenv==16.2.0 && \
  pip3 install tox==2.9.1 && \
- sed -i 's|envlist = .*|envlist = py36,pre-commit|g' tox.ini && \
+ PY_ARG=$(printf "$(python3 -V)" | awk '{print $2}' | awk 'BEGIN{FS=OFS="."} NF--' | sed 's|\.||g' | sed 's|^|py|g') && \
+ sed -i "s|envlist = .*|envlist = ${PY_ARG},pre-commit|g" tox.ini && \
  tox --notest && \
  mkdir -p dist && \
  chmod 777 dist && \
- /compose/.tox/py36/bin/pip3 install -q -r requirements-build.txt && \
+ /compose/.tox/${PY_ARG}/bin/pip3 install -q -r requirements-build.txt && \
  echo "$(script/build/write-git-sha)" > compose/GITSHA && \
  export PATH="/compose/pyinstaller:${PATH}" && \
- /compose/.tox/py36/bin/pyinstaller --exclude-module pycrypto --exclude-module PyInstaller docker-compose.spec && \
+ /compose/.tox/${PY_ARG}/bin/pyinstaller --exclude-module pycrypto --exclude-module PyInstaller docker-compose.spec && \
  ls -la dist/ && \
  ldd dist/docker-compose && \
  mv dist/docker-compose /usr/local/bin && \
