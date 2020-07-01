@@ -19,6 +19,7 @@ pipeline {
     EXT_GIT_BRANCH = 'master'
     EXT_USER = 'docker'
     EXT_REPO = 'compose'
+    CONTAINER_NAME = 'docker-compose'
     BUILD_VERSION_ARG = 'COMPOSE_VERSION'
     LS_USER = 'linuxserver'
     LS_REPO = 'docker-docker-compose'

@@ -17,7 +17,7 @@
 
 set -e
 
-VERSION="latest" # can be set to a specific version tag from docker hub, such as "1.25.5"
+VERSION="latest" # can be set to a specific version tag from docker hub, such as "1.25.5", or "alpine"
 IMAGE="linuxserver/docker-compose:$VERSION"
 
 
@@ -60,6 +60,11 @@ DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS -i"
 # Handle userns security
 if docker info --format '{{json .SecurityOptions}}' 2>/dev/null | grep -q 'name=userns'; then
     DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS --userns=host"
+fi
+
+# Detect SELinux and add --privileged if necessary
+if docker info --format '{{json .SecurityOptions}}' 2>/dev/null | grep -q 'name=selinux'; then
+    DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS --privileged"
 fi
 
 # shellcheck disable=SC2086
