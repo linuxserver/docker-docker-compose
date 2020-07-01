@@ -39,7 +39,6 @@ full_custom_readme: |
   [![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/docker-compose.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/docker-compose)
   [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/docker-compose.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/docker-compose)
   [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-docker-compose%2Fjob%2Fmaster%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-docker-compose/job/master/)
-  [![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Flsio-ci.ams3.digitaloceanspaces.com%2Flinuxserver%2Fdocker-compose%2Flatest%2Fci-status.yml)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/docker-compose/latest/index.html)
 
   [Docker-compose](https://github.com/docker/compose) is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application's services. Then, using a single command, you create and start all the services from your configuration.
 
@@ -59,6 +58,14 @@ full_custom_readme: |
   | arm64 | arm64v8-latest |
   | armhf | arm32v7-latest |
 
+  ## Version Tags
+
+  This image provides various versions that are available via tags. `latest` tag usually provides the latest stable version. Others are considered under development and caution must be exercised when using them.
+
+  | Tag | Description |
+  | :----: | --- |
+  | latest | Ubuntu based images |
+  | alpine | Alpine based images |
 
   ## Usage
 
@@ -123,6 +130,7 @@ full_custom_readme: |
 
   ## Versions
 
+  * **01.07.20:** - Release alpine based images at `alpine` tag.
   * **04.06.20:** - Bump docker-cli to 19.03.8, auto-detect python3 version.
   * **19.05.20:** - Initial Release.
 
