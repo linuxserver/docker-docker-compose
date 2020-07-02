@@ -64,7 +64,7 @@ fi
 
 # Detect SELinux and add --privileged if necessary
 if docker info --format '{{json .SecurityOptions}}' 2>/dev/null | grep -q 'name=selinux'; then
-    DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS --privileged"
+    DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS --security-opt label:disable"
 fi
 
 # shellcheck disable=SC2086
