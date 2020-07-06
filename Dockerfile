@@ -49,7 +49,7 @@ RUN \
  PYINSTVER=$(cat requirements-build.txt | grep pyinstaller | sed 's|pyinstaller==|v|') && \
  git clone --single-branch --branch develop https://github.com/pyinstaller/pyinstaller.git /tmp/pyinstaller && \
  cd /tmp/pyinstaller/bootloader && \
- git checkout $(PYINSTVER) && \
+ git checkout ${PYINSTVER} && \
  /compose/.tox/${PY_ARG}/bin/python3 ./waf configure --no-lsb all && \
  /compose/.tox/${PY_ARG}/bin/pip3 install .. && \
  cd /compose && \
