@@ -82,6 +82,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 Running these two commands on your docker host once will let you issue commands such as `docker-compose up -d` and the docker-compose container will do its job behind the scenes.
 
+### Binaries
+
+We are also providing the binaries for both docker-compose and docker-cli for all three arches in Github releases. You can download the correct binaries for your arch directly and drop into `/usr/local/bin/`.
 
 ## Docker Mods
 [![Docker Mods](https://img.shields.io/badge/dynamic/yaml?style=for-the-badge&color=E68523&label=mods&query=%24.mods%5B%27docker-compose%27%5D.mod_count&url=https%3A%2F%2Fraw.githubusercontent.com%2Flinuxserver%2Fdocker-mods%2Fmaster%2Fmod-list.yml)](https://mods.linuxserver.io/?mod=docker-compose "view available mods for this container.")
@@ -122,6 +125,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **06.07.20:** - Publish docker-compose and docker-cli binaries in Github releases.
 * **01.07.20:** - Release alpine based images at `alpine` tag.
 * **04.06.20:** - Bump docker-cli to 19.03.8, auto-detect python3 version.
 * **19.05.20:** - Initial Release.
