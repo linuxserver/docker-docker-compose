@@ -17,9 +17,8 @@
 
 set -e
 
-VERSION="latest" # can be set to a specific version tag from docker hub, such as "1.25.5", or "alpine"
-IMAGE="linuxserver/docker-compose:$VERSION"
-
+DOCKER_COMPOSE_CONTAINER_VERSION="${DOCKER_COMPOSE_CONTAINER_VERSION-latest}" # can be set to a specific version tag from docker hub, such as "1.25.5", or "alpine"
+IMAGE="linuxserver/docker-compose:$DOCKER_COMPOSE_CONTAINER_VERSION"
 
 # Setup options for connecting to docker host
 if [ -z "$DOCKER_HOST" ]; then
