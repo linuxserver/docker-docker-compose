@@ -13,13 +13,16 @@
 # You can add additional volumes (or any docker run options) using
 # the $COMPOSE_OPTIONS environment variable.
 #
+# You can set a specific image tag from Docker Hub, such as "1.26.2-ls9", or "alpine"
+# using the $DOCKER_COMPOSE_IMAGE_TAG environment variable (defaults to "latest")
+#
 
 
 set -e
 
-VERSION="latest" # can be set to a specific version tag from docker hub, such as "1.25.5", or "alpine"
-IMAGE="linuxserver/docker-compose:$VERSION"
-
+# set image tag to latest if not globally set
+DOCKER_COMPOSE_IMAGE_TAG="${DOCKER_COMPOSE_IMAGE_TAG:-latest}"
+IMAGE="linuxserver/docker-compose:$DOCKER_COMPOSE_IMAGE_TAG"
 
 # Setup options for connecting to docker host
 if [ -z "$DOCKER_HOST" ]; then
