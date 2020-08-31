@@ -31,8 +31,8 @@ RUN \
  git clone https://github.com/docker/compose.git && \
  cd /compose && \
  git checkout "${COMPOSE_VERSION}" && \
- pip3 install virtualenv==16.2.0 && \
- pip3 install tox==2.9.1 && \
+ pip3 install virtualenv==20.0.30 && \
+ pip3 install tox==3.19.0 && \
  PY_ARG=$(printf "$(python3 -V)" | awk '{print $2}' | awk 'BEGIN{FS=OFS="."} NF--' | sed 's|\.||g' | sed 's|^|py|g') && \
  sed -i "s|envlist = .*|envlist = ${PY_ARG},pre-commit|g" tox.ini && \
  tox --notest && \

@@ -125,6 +125,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **31.08.20:** - Update tox and virtualenv.
 * **31.07.20:** - Add support for global env var `DOCKER_COMPOSE_IMAGE_TAG` in the `run.sh` script.
 * **06.07.20:** - Publish docker-compose and docker-cli binaries in Github releases.
 * **01.07.20:** - Release alpine based images at `alpine` tag.
