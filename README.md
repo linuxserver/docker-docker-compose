@@ -127,6 +127,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **12.09.20:** - Bump tox and virtualenv versions.
 * **06.07.20:** - Publish docker-compose and docker-cli binaries in Github releases.
 * **01.07.20:** - Release alpine based images at `alpine` tag.
 * **04.06.20:** - Bump docker-cli to 19.03.8, auto-detect python3 version.
