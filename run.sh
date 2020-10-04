@@ -26,10 +26,10 @@ IMAGE="linuxserver/docker-compose:$DOCKER_COMPOSE_IMAGE_TAG"
 
 # Setup options for connecting to docker host
 if [ -z "$DOCKER_HOST" ]; then
-    DOCKER_HOST="/var/run/docker.sock"
+    DOCKER_HOST='unix:///var/run/docker.sock'
 fi
-if [ -S "$DOCKER_HOST" ]; then
-    DOCKER_ADDR="-v $DOCKER_HOST:$DOCKER_HOST -e DOCKER_HOST"
+if [ -S "${DOCKER_HOST#unix://}" ]; then
+    DOCKER_ADDR="-v ${DOCKER_HOST#unix://}:${DOCKER_HOST#unix://} -e DOCKER_HOST"
 else
     DOCKER_ADDR="-e DOCKER_HOST -e DOCKER_TLS_VERIFY -e DOCKER_CERT_PATH"
 fi
@@ -41,7 +41,13 @@ if [ "$(pwd)" != '/' ]; then
 fi
 if [ -n "$COMPOSE_FILE" ]; then
     COMPOSE_OPTIONS="$COMPOSE_OPTIONS -e COMPOSE_FILE=$COMPOSE_FILE"
-    compose_dir=$(realpath "$(dirname "$COMPOSE_FILE")")
+    compose_dir="$(dirname "$COMPOSE_FILE")"
+    # canonicalize dir, do not use realpath or readlink -f
+    # since they are not available in some systems (e.g. macOS).
+    compose_dir="$(cd "$compose_dir" && pwd)"
+fi
+if [ -n "$COMPOSE_PROJECT_NAME" ]; then
+    COMPOSE_OPTIONS="-e COMPOSE_PROJECT_NAME $COMPOSE_OPTIONS"
 fi
 # TODO: also check --file argument
 if [ -n "$compose_dir" ]; then

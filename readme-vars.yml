@@ -78,9 +78,9 @@ full_custom_readme: |
     up
   ```
   You can replace the last line with any docker-compose command and argument, which will be passed to docker-compose inside the image.
-  
+
   ### Recommended method
-  
+
   We provide a very convenient script that allows the docker-compose container to run as if it was installed natively:
   ```
   sudo curl -L --fail https://raw.githubusercontent.com/linuxserver/docker-docker-compose/master/run.sh -o /usr/local/bin/docker-compose
@@ -131,6 +131,7 @@ full_custom_readme: |
 
   ## Versions
 
+  * **04.10.20:** - Update run.sh with changes from upstream.
   * **31.08.20:** - Update tox and virtualenv.
   * **31.07.20:** - Add support for global env var `DOCKER_COMPOSE_IMAGE_TAG` in the `run.sh` script.
   * **06.07.20:** - Publish docker-compose and docker-cli binaries in Github releases.
