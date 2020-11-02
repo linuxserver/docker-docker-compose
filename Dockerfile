@@ -2,7 +2,7 @@ ARG DOCKER_VERSION=19.03.8
 
 FROM docker:${DOCKER_VERSION} AS docker-cli
 
-FROM lsiobase/alpine:3.12 AS build
+FROM ghcr.io/linuxserver/baseimage-alpine:3.12 AS build
 
 ARG COMPOSE_VERSION
 
@@ -62,7 +62,7 @@ RUN \
  docker-compose version
 
 ############## runtime stage ##############
-FROM lsiobase/alpine:3.12
+FROM ghcr.io/linuxserver/baseimage-alpine:3.12
 
 ARG BUILD_DATE
 ARG VERSION
