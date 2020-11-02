@@ -2,7 +2,7 @@ ARG DOCKER_VERSION=19.03.8
 
 FROM arm32v7/docker:${DOCKER_VERSION} AS docker-cli
 
-FROM lsiobase/ubuntu:arm32v7-bionic AS build
+FROM ghcr.io/linuxserver/baseimage-ubuntu:arm32v7-bionic AS build
 
 ARG COMPOSE_VERSION
 
@@ -48,7 +48,7 @@ RUN \
  docker-compose version
 
 ############## runtime stage ##############
-FROM lsiobase/ubuntu:arm32v7-bionic
+FROM ghcr.io/linuxserver/baseimage-ubuntu:arm32v7-bionic
 
 ARG BUILD_DATE
 ARG VERSION
