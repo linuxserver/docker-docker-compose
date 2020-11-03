@@ -22,7 +22,7 @@ set -e
 
 # set image tag to latest if not globally set
 DOCKER_COMPOSE_IMAGE_TAG="${DOCKER_COMPOSE_IMAGE_TAG:-latest}"
-IMAGE="linuxserver/docker-compose:$DOCKER_COMPOSE_IMAGE_TAG"
+IMAGE="ghcr.io/linuxserver/docker-compose:$DOCKER_COMPOSE_IMAGE_TAG"
 
 # Setup options for connecting to docker host
 if [ -z "$DOCKER_HOST" ]; then
