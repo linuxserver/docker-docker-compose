@@ -93,7 +93,7 @@ full_custom_readme: |
 
   After running these commands you can issue commands such as `docker-compose up -d` and the docker-compose container will do its job behind the scenes.
 
-  The `DOCKER_COMPOSE_IMAGE_TAG` variable needs to be made persistent in order to continue using our image after logging our or rebooting. To do this you will need to edit `/etc/environment` and add or set the following variable:
+  The `DOCKER_COMPOSE_IMAGE_TAG` variable needs to be made persistent in order to continue using our image after logging out or rebooting. To do this you will need to edit `/etc/environment` and add or set the following variable:
 
   ```
   DOCKER_COMPOSE_IMAGE_TAG=ghcr.io/linuxserver/docker-compose:latest
