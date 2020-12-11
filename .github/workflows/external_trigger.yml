@@ -18,7 +18,7 @@ jobs:
           fi
           echo "**** External trigger running off of alpine branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_DOCKER_COMPOSE_ALPINE\". ****"
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(curl -sX GET "https://api.github.com/repos/docker/compose/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]' | awk '$0="alpine-"$0')
+          EXT_RELEASE=$(curl -sX GET "https://api.github.com/repos/docker/compose/releases/latest" | jq -r '.tag_name' | awk '$0="alpine-"$0')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for docker-compose branch alpine"

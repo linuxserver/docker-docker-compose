@@ -103,7 +103,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' curl -sX GET "https://api.github.com/repos/docker/compose/releases/latest" | awk '/tag_name/{print $4;exit}' FS='[""]' | awk '$0="alpine-"$0' ''',
+            script: ''' curl -sX GET "https://api.github.com/repos/docker/compose/releases/latest" | jq -r '.tag_name' | awk '$0="alpine-"$0' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }
