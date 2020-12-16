@@ -3,7 +3,7 @@
 # jenkins variables
 project_name: docker-docker-compose
 external_type: na
-custom_version_command: "curl -sX GET \"https://api.github.com/repos/docker/compose/releases/latest\" | jq -r '.tag_name' | awk '$0=\"alpine-\"$0'"
+custom_version_command: "curl -sX GET https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name'"
 release_type: prerelease
 release_tag: alpine
 ls_branch: alpine

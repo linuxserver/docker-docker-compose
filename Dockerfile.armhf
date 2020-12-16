@@ -31,9 +31,8 @@ RUN \
  mkdir -p /compose && \
  if [ -z ${COMPOSE_VERSION+x} ]; then \
     COMPOSE_VERSION=$(curl -sX GET "https://api.github.com/repos/docker/compose/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]' | awk '$0="alpine-"$0'); \
+    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
  fi && \
- COMPOSE_VERSION=$(echo "$COMPOSE_VERSION" | sed 's|alpine-||') && \
  git clone https://github.com/docker/compose.git && \
  cd /compose && \
  git checkout "${COMPOSE_VERSION}" && \
