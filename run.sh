@@ -68,4 +68,4 @@ if docker info --format '{{json .SecurityOptions}}' 2> /dev/null | grep -q 'name
 fi
 
 # shellcheck disable=SC2086
-exec docker run --rm ${DOCKER_RUN_OPTIONS} ${DOCKER_ADDR} ${COMPOSE_OPTIONS} ${VOLUMES} -w "${PWD}" "${DOCKER_COMPOSE_IMAGE_TAG:-docker/compose:1.27.4}" "$@"
+exec docker run --rm ${DOCKER_RUN_OPTIONS} ${DOCKER_ADDR} ${COMPOSE_OPTIONS} ${VOLUMES} -w "${PWD}" "${DOCKER_COMPOSE_IMAGE_TAG:-ghcr.io/linuxserver/docker-compose:latest}" "$@"
