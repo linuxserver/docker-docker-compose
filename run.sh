@@ -1,5 +1,7 @@
 #!/bin/sh
 #
+# Forked from https://github.com/docker/compose/blob/master/script/run/run.sh
+#
 # Run docker-compose in a container
 #
 # This script will attempt to mirror the host paths by using volumes for the
@@ -11,8 +13,8 @@
 # You can add additional volumes (or any docker run options) using
 # the ${COMPOSE_OPTIONS} environment variable.
 #
-# You can set a specific image and tag, such as "docker/compose:1.27.4", or "docker/compose:alpine-1.27.4"
-# using the $DOCKER_COMPOSE_IMAGE_TAG environment variable (defaults to "docker/compose:1.27.4")
+# You can set a specific image and tag, such as "ghcr.io/linuxserver/docker-compose:version-1.27.4", or "ghcr.io/linuxserver/docker-compose:alpine"
+# using the $DOCKER_COMPOSE_IMAGE_TAG environment variable (defaults to "ghcr.io/linuxserver/docker-compose:latest")
 #
 
 set -e
