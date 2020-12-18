@@ -78,23 +78,14 @@ You can replace the last line with any docker-compose command and argument, whic
 
 ### Recommended method
 
-We provide a very convenient script that allows the docker-compose container to run as if it was installed natively.
-
-First run the following commands to setup the script:
+We provide a very convenient script that allows the docker-compose container to run as if it was installed natively:
 
 ```
-export DOCKER_COMPOSE_IMAGE_TAG=ghcr.io/linuxserver/docker-compose:latest
 sudo curl -L --fail https://raw.githubusercontent.com/linuxserver/docker-docker-compose/master/run.sh -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-After running these commands you can issue commands such as `docker-compose up -d` and the docker-compose container will do its job behind the scenes.
-
-The `DOCKER_COMPOSE_IMAGE_TAG` variable needs to be made persistent in order to continue using our image after logging out or rebooting. To do this you will need to edit `/etc/environment` and add or set the following variable:
-
-```
-DOCKER_COMPOSE_IMAGE_TAG=ghcr.io/linuxserver/docker-compose:latest
-```
+Running these two commands on your docker host once will let you issue commands such as `docker-compose up -d` and the docker-compose container will do its job behind the scenes.
 
 ### Binaries
 
@@ -139,7 +130,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **03.11.20:** - Update run.sh with formatting changes. IMPORTANT!! This now requires a `DOCKER_COMPOSE_IMAGE_TAG` variable to be set in order to use our image! See https://github.com/linuxserver/docker-docker-compose#recommended-method for instructions!
+* **17.12.20:** - Update run.sh with formatting changes.
 * **04.10.20:** - Update run.sh with changes from upstream.
 * **31.08.20:** - Update tox and virtualenv.
 * **31.07.20:** - Add support for global env var `DOCKER_COMPOSE_IMAGE_TAG` in the `run.sh` script.
