@@ -12,13 +12,13 @@ jobs:
       - name: Retrieve artifacts
         run: |
           mkdir -p ./artifacts
-          docker create --name amd64 linuxserver/docker-compose:amd64-${{ github.event.release.tag_name }}
+          docker create --name amd64 linuxserver/docker-compose:amd64-alpine-${{ github.event.release.tag_name }}
           docker cp amd64:/usr/local/bin/docker-compose ./artifacts/docker-compose-amd64
           docker cp amd64:/usr/local/bin/docker ./artifacts/docker-cli-amd64
-          docker create --name armhf linuxserver/docker-compose:arm32v7-${{ github.event.release.tag_name }}
+          docker create --name armhf linuxserver/docker-compose:arm32v7-alpine-${{ github.event.release.tag_name }}
           docker cp armhf:/usr/local/bin/docker-compose ./artifacts/docker-compose-armhf
           docker cp armhf:/usr/local/bin/docker ./artifacts/docker-cli-armhf
-          docker create --name arm64 linuxserver/docker-compose:arm64v8-${{ github.event.release.tag_name }}
+          docker create --name arm64 linuxserver/docker-compose:arm64v8-alpine-${{ github.event.release.tag_name }}
           docker cp arm64:/usr/local/bin/docker-compose ./artifacts/docker-compose-arm64
           docker cp arm64:/usr/local/bin/docker ./artifacts/docker-cli-arm64
       - name: Copy build-artifacts
