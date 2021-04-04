@@ -43,6 +43,9 @@ fi
 if [ -n "${COMPOSE_PROJECT_NAME}" ]; then
     COMPOSE_OPTIONS="-e COMPOSE_PROJECT_NAME ${COMPOSE_OPTIONS}"
 fi
+if [ -n "${COMPOSE_PROFILES}" ]; then
+    COMPOSE_OPTIONS="${COMPOSE_OPTIONS} -e COMPOSE_PROFILES=${COMPOSE_PROFILES}"
+fi
 # TODO: also check --file argument
 if [ -n "${COMPOSE_DIR}" ]; then
     VOLUMES="${VOLUMES} -v ${COMPOSE_DIR}:${COMPOSE_DIR}"
