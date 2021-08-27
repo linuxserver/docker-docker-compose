@@ -366,7 +366,9 @@ pipeline {
     // Build Docker container for push to LS Repo
     stage('Build-Single') {
       when {
-        environment name: 'MULTIARCH', value: 'false'
+        expression {
+          env.MULTIARCH == 'false' || params.PACKAGE_CHECK == 'true' 
+        }
         environment name: 'EXIT_STATUS', value: ''
       }
       steps {
@@ -391,7 +393,10 @@ pipeline {
     // Build MultiArch Docker containers for push to LS Repo
     stage('Build-Multi') {
       when {
-        environment name: 'MULTIARCH', value: 'true'
+        allOf {
+          environment name: 'MULTIARCH', value: 'true'
+          expression { params.PACKAGE_CHECK == 'false' }
+        }
         environment name: 'EXIT_STATUS', value: ''
       }
       parallel {
@@ -496,7 +501,7 @@ pipeline {
         sh '''#! /bin/bash
               set -e
               TEMPDIR=$(mktemp -d)
-              if [ "${MULTIARCH}" == "true" ]; then
+              if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 LOCAL_CONTAINER=${IMAGE}:amd64-${META_TAG}
               else
                 LOCAL_CONTAINER=${IMAGE}:${META_TAG}
@@ -557,7 +562,7 @@ pipeline {
       steps {
         sh '''#! /bin/bash
               echo "Packages were updated. Cleaning up the image and exiting."
-              if [ "${MULTIARCH}" == "true" ]; then
+              if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${IMAGE}:amd64-${META_TAG}
               else
                 docker rmi ${IMAGE}:${META_TAG}
@@ -581,7 +586,7 @@ pipeline {
       steps {
         sh '''#! /bin/bash
               echo "There are no package updates. Cleaning up the image and exiting."
-              if [ "${MULTIARCH}" == "true" ]; then
+              if [ "${MULTIARCH}" == "true" ] && [ "${PACKAGE_CHECK}" == "false" ]; then
                 docker rmi ${IMAGE}:amd64-${META_TAG}
               else
                 docker rmi ${IMAGE}:${META_TAG}
