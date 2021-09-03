@@ -1,6 +1,6 @@
 ARG DOCKER_VERSION=19.03
 
-FROM docker:${DOCKER_VERSION} AS docker-cli
+FROM arm32v7/docker:${DOCKER_VERSION} AS docker-cli
 
 FROM ghcr.io/linuxserver/baseimage-alpine:arm32v7-3.12 AS build
 
