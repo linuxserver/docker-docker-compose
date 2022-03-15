@@ -16,7 +16,7 @@ RUN \
   fi && \
   apk add -U --upgrade --no-cache  \
     docker-cli \
-    docker-cli-compose && \
+    docker-cli-compose==${COMPOSE_VERSION} && \
   docker compose version
 
 COPY ./docker-compose-entrypoint.sh /usr/local/bin/docker-compose-entrypoint.sh
