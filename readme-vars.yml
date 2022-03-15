@@ -68,6 +68,7 @@ full_custom_readme: |
   | Tag | Available | Description |
   | :----: | :----: |--- |
   | latest | ✅ | docker-compose v1 releases |
+  | alpine | ✅ | docker-compose v1 releases with our alpine baseimage |  
   | v2 | ✅ | docker compose v2 releases |
 
   ## Usage
