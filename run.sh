@@ -16,6 +16,7 @@
 # You can set a specific image and tag, such as "ghcr.io/linuxserver/docker-compose:version-1.27.4", or "ghcr.io/linuxserver/docker-compose:alpine"
 # using the $DOCKER_COMPOSE_IMAGE_TAG environment variable (defaults to "ghcr.io/linuxserver/docker-compose:latest")
 #
+# Should support v2 as well, though still with the `docker-compose` alias.
 
 set -e
 
