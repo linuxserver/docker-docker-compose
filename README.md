@@ -141,7 +141,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **15.03.22:** - Add v2 branch. Change master to only fetch v1 releases. Change alpine to only fetch v1 releases.
+* **15.03.22:** - Add v2 branch. Change master to only fetch v1 releases. Change alpine to only fetch v1 releases. Rebase master to focal. Rebase alpine to 3.15.
 * **17.12.20:** - Update run.sh with formatting changes.
 * **04.10.20:** - Update run.sh with changes from upstream.
 * **31.08.20:** - Update tox and virtualenv.
