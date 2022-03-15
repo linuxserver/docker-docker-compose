@@ -1,8 +1,8 @@
-ARG DOCKER_VERSION=19.03
+ARG DOCKER_VERSION=20.10.13
 
 FROM docker:${DOCKER_VERSION} AS docker-cli
 
-FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic AS build
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal AS build
 
 ARG COMPOSE_VERSION
 
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     jq \
     libc-dev \
     libffi-dev \
-    libgcc-6-dev \
+    libgcc-10-dev \
     libssl-dev \
     make \
     openssl \
@@ -51,7 +51,7 @@ RUN \
   docker-compose version
 
 ############## runtime stage ##############
-FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
 
 ARG BUILD_DATE
 ARG VERSION
