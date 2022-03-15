@@ -2,14 +2,12 @@
 
 # jenkins variables
 project_name: docker-docker-compose
-external_type: github_stable
+external_type: na
+custom_version_command: "curl -sX GET https://api.github.com/repos/docker/compose/releases | jq -r 'first(.[] | select(.tag_name | startswith(\"1.\"))) | .tag_name'"
 release_type: stable
 release_tag: latest
 ls_branch: master
 repo_vars:
-  - EXT_GIT_BRANCH = 'master'
-  - EXT_USER = 'docker'
-  - EXT_REPO = 'compose'
   - CONTAINER_NAME = 'docker-compose'
   - BUILD_VERSION_ARG = 'COMPOSE_VERSION'
   - LS_USER = 'linuxserver'
