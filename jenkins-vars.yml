@@ -2,14 +2,11 @@
 
 # jenkins variables
 project_name: docker-docker-compose
-external_type: github_stable
-release_type: stable
-release_tag: latest
-ls_branch: master
+external_type: alpine_repo
+release_type: prerelease
+release_tag: v2
+ls_branch: v2
 repo_vars:
-  - EXT_GIT_BRANCH = 'master'
-  - EXT_USER = 'docker'
-  - EXT_REPO = 'compose'
   - CONTAINER_NAME = 'docker-compose'
   - BUILD_VERSION_ARG = 'COMPOSE_VERSION'
   - LS_USER = 'linuxserver'
@@ -17,7 +14,10 @@ repo_vars:
   - DOCKERHUB_IMAGE = 'linuxserver/docker-compose'
   - DEV_DOCKERHUB_IMAGE = 'lsiodev/docker-compose'
   - PR_DOCKERHUB_IMAGE = 'lspipepr/docker-compose'
-  - DIST_IMAGE = 'ubuntu'
+  - DIST_IMAGE = 'alpine'
+  - DIST_TAG = 'edge'
+  - DIST_REPO = 'http://dl-cdn.alpinelinux.org/alpine/edge/community/'
+  - DIST_REPO_PACKAGES = 'docker-cli-compose'
   - MULTIARCH='true'
   - CI='false'
   - CI_WEB='false'

@@ -16,6 +16,7 @@
 # You can set a specific image and tag, such as "ghcr.io/linuxserver/docker-compose:version-1.27.4", or "ghcr.io/linuxserver/docker-compose:alpine"
 # using the $DOCKER_COMPOSE_IMAGE_TAG environment variable (defaults to "ghcr.io/linuxserver/docker-compose:latest")
 #
+# Should support v2 as well, though still with the `docker-compose` alias.
 
 set -e
 
@@ -70,4 +71,4 @@ if docker info --format '{{json .SecurityOptions}}' 2> /dev/null | grep -q 'name
 fi
 
 # shellcheck disable=SC2086
-exec docker run --rm ${DOCKER_RUN_OPTIONS} ${DOCKER_ADDR} ${COMPOSE_OPTIONS} ${VOLUMES} -w "${PWD}" "${DOCKER_COMPOSE_IMAGE_TAG:-ghcr.io/linuxserver/docker-compose:latest}" "$@"
+exec docker run --rm ${DOCKER_RUN_OPTIONS} ${DOCKER_ADDR} ${COMPOSE_OPTIONS} ${VOLUMES} -w "${PWD}" "${DOCKER_COMPOSE_IMAGE_TAG:-lscr.io/linuxserver/docker-compose:v2}" "$@"
