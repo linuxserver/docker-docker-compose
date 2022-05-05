@@ -39,9 +39,9 @@ Find us at:
 [![Docker Stars](https://img.shields.io/docker/stars/linuxserver/docker-compose.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/docker-compose)
 [![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-docker-compose%2Fjob%2Falpine%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-docker-compose/job/alpine/)
 
-[docker-compose](https://github.com/docker-compose/docker-compose) is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application's services. Then, using a single command, you create and start all the services from your configuration.
+[docker-compose](https://github.com/docker/compose) is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application's services. Then, using a single command, you create and start all the services from your configuration.
 
-[![docker-compose](https://github.com/docker/compose/raw/master/logo.png)](https://github.com/docker-compose/docker-compose)
+[![docker-compose](https://github.com/docker/compose/raw/master/logo.png)](https://github.com/docker/compose)
 
 ## Supported Architectures
 
