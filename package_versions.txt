@@ -3,7 +3,7 @@ alpine-baselayout-data-3.2.0-r23
 alpine-keys-2.4-r1
 apk-tools-2.12.9-r5
 bash-5.1.16-r2
-brotli-libs-1.0.9-r6
+brotli-libs-1.0.9-r7
 busybox-1.35.0-r20
 ca-certificates-20211220-r0
 ca-certificates-bundle-20211220-r0
