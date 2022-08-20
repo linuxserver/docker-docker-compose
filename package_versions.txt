@@ -11,7 +11,7 @@ ca-certificates-bundle-20220614-r2
 coreutils-9.1-r0
 curl-7.84.0-r2
 docker-cli-20.10.17-r2
-docker-cli-compose-2.9.0-r1
+docker-cli-compose-2.10.0-r0
 libacl-2.3.1-r1
 libattr-2.5.1-r1
 libc-utils-0.7.2-r3
