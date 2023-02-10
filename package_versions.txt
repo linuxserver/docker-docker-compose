@@ -10,8 +10,8 @@ ca-certificates-20230106-r0
 ca-certificates-bundle-20230106-r0
 coreutils-9.1-r0
 curl-7.87.0-r3
-docker-cli-23.0.0-r1
-docker-cli-compose-2.15.1-r1
+docker-cli-23.0.1-r0
+docker-cli-compose-2.16.0-r0
 jq-1.6-r2
 libacl-2.3.1-r1
 libattr-2.5.1-r3
