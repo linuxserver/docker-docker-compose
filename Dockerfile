@@ -2,7 +2,7 @@ ARG DOCKER_VERSION=20.10.13
 
 FROM docker:${DOCKER_VERSION} AS docker-cli
 
-FROM ghcr.io/linuxserver/baseimage-ubuntu:focal AS build
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal-da661a62-ls106 AS build
 
 ARG COMPOSE_VERSION
 
@@ -51,7 +51,7 @@ RUN \
   docker-compose version
 
 ############## runtime stage ##############
-FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
+FROM ghcr.io/linuxserver/baseimage-ubuntu:focal-da661a62-ls106
 
 ARG BUILD_DATE
 ARG VERSION
