@@ -1,3 +1,12 @@
+# DEPRECATION NOTICE
+
+This image is deprecated. We will not offer support for this image and it will not be updated.
+Docker Compose is now available from the docker repos:
+https://docs.docker.com/engine/install/
+
+And also for direct download:
+https://github.com/docker/compose
+
 <!--- Provide a general summary of your changes in the Title above -->
 
 [linuxserverurl]: https://linuxserver.io
