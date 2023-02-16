@@ -2,6 +2,15 @@
 
 # project information
 project_name: docker-compose
+
+project_deprecation_status: true
+project_deprecation_message: |
+  Docker Compose is now available from the docker repos:
+  https://docs.docker.com/engine/install/
+
+  And also for direct download:
+  https://github.com/docker/compose
+
 full_custom_readme: |
   {% raw -%}
   [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
@@ -144,6 +153,7 @@ full_custom_readme: |
 
   ## Versions
 
+  * **16.02.23:** - Deprecate image.
   * **15.03.22:** - Add v2 branch. Change master to only fetch v1 releases. Change alpine to only fetch v1 releases. Rebase master to focal. Rebase alpine to 3.15.
   * **17.12.20:** - Update run.sh with formatting changes.
   * **04.10.20:** - Update run.sh with changes from upstream.
